@@ -1,5 +1,5 @@
 """ 
-https://towardsdatascience.com/an-extensive-guide-to-collecting-tweets-from-twitter-api-v2-for-academic-research-using-python-3-518fcb71df2a
+Code inspired by this tutorial https://towardsdatascience.com/an-extensive-guide-to-collecting-tweets-from-twitter-api-v2-for-academic-research-using-python-3-518fcb71df2a
 https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-recent
 """
 
@@ -17,7 +17,7 @@ fpath = os.path.join(pdir,"twitter_creds.json") #add path of parent direcotry to
 # read json file with user keys and bearer token
 with open(fpath) as user_file:
     creds = json.load(user_file)
-BEARER_TOEKN = creds['BEARER_TOKEN']
+BEARER_TOKEN = creds['BEARER_TOKEN']
 TOKENS = [None]
 def create_headers(bearer_token):
     headers = {"Authorization": "Bearer {}".format(bearer_token)}
@@ -50,7 +50,7 @@ def connect_to_endpoint(url, headers, params):
     print("next token",TOKENS[-1])
     return response
 
-headers = create_headers(BEARER_TOEKN)
+headers = create_headers(BEARER_TOKEN)
 start_time = "2023-03-25T21:00:00.000Z"
 end_time = "2023-04-01T19:30:00.000Z"
 max_results = 100
